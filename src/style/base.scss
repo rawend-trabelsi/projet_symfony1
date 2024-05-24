@@ -1,0 +1,59 @@
+@import "./var/color";
+@import "./common/header";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  font-size: 20px;
+
+  a {
+    color: $color-black;
+    text-decoration: none;
+    font-weight: 900;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // LAYOUT
+
+  > .body {
+    display: flex;
+    justify-content: space-between;
+
+    > section {
+      align-self: center;
+      margin-right: 10rem;
+      width: 80%;
+      min-height: calc(100vh - 10rem);
+    }
+  }
+
+/*   table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  } */
+
+  .post-container {
+    .post.card {
+      display: inline-block;
+
+      width: 15rem;
+      .card-img-top {
+        height: 18rem;
+        max-width: 18rem;
+      }
+
+      .card-body .detail {
+        padding: 1rem;
+        height: 10rem;
+        overflow: auto;
+      }
+    }
+  }
+}

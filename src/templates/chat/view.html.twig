@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in chat.messages %}
+        <p>
+            <small>{{message.timestamp|date("Y/m/d H:i:s")}}</small>
+            <b>{{message.sender.username}}: </b>
+            {{message.content}}
+        </p>
+    {% endfor %}
+    {{ form_start(form) }}
+    <div style="display: none;">
+        {{ form_widget(form.chat) }}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="chats">
+        <h2>Sellers</h2>
+        <div class="seller chats">
+            {% for chat in buyerChats %}
+                <a href="{{path('chat_view', {'idChat': chat.id})}}">{{chat.seller.username}}</a>
+                <img src="{{chat.post.images[0].path}}" height="100" width="100">
+                <label>{{chat.post.title}}</label>
+                <hr>
+            {% else %}
+                <p>No chats in sellers section.</p>
+            {% endfor %}
+        </div>
+        <h2>Buyers</h2>
+        <div class="buyer chats">
+            {% for chat in sellerChats %}
+                <a href="{{path('chat_view', {'idChat': chat.id})}}">{{chat.buyer.username}}</a>
+                <img src="{{chat.post.images[0].path}}" height="100" width="100">
+                <label>{{chat.post.title}}</label>
+                <hr>
+            {% else %}
+                <p>No chats in buyers section.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

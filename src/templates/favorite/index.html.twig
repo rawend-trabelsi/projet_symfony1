@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        {% if favorites %}
+            <tr>
+                <th>Date</th>
+                <th>Title</th>
+            </tr>
+            {% for fav in favorites %}
+                <tr>
+                    <td>{{fav.createdAt|date("Y/m/d H:i:s")}}</td>
+                    <td><a href="{{path('post_view', { 'idPost': fav.post.id })}}">{{fav.post.title}}</a></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            You have no favorite
+        {% endif %}
+    </table>
+{% endblock %}

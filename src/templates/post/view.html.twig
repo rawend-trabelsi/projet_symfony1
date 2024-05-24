@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	
+	{% for image in post.images %}
+		<img src="{{ asset('img/posts/'~image.filename) }}">
+	{% else %}
+		No images
+	{% endfor %}
+    <p>
+
+	<a href="{{path('profile_user', { 'idUser': post.user.id })}}">{{ post.user.username|upper }}</a>
+	    <b>{{ post.price }}€</b><br>
+	    {{ post.user.address.city }} ({{post.user.address.postcode}})<br>
+	    <small>publish date: {{ post.publicationDate|date("d/m/Y") }}</small> 
+        {{ post.detail }}
+    </p>
+    <br>
+
+	{% if isOwner %}
+		<a href="{{ path('post_edit', {'idPost': post.id}) }}">Edit</a>
+		<br>
+	{% else %}
+		<a href="{{path('chat_post', { 'idPost': post.id })}}" class="btn">start a chat</a>
+		<br>
+	{% endif %}
+	<a href="{{ path('favorite_toggle', {'idPost': post.id}) }}" class="btn">
+		{% if isFavorite %}
+			Remove from favorites
+		{% else %}
+			Add to favorites
+		{% endif %}
+	</a>
+    
+{% endblock %}

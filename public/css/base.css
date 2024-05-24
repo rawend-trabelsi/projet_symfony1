@@ -1,0 +1,71 @@
+body > header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+          box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  font-size: 20px;
+  /*   table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  } */
+}
+
+body a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+body a:hover {
+  cursor: pointer;
+}
+
+body > .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body > .body > section {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-right: 10rem;
+  width: 80%;
+  min-height: calc(100vh - 10rem);
+}
+
+body .post-container .post.card {
+  display: inline-block;
+  width: 15rem;
+}
+
+body .post-container .post.card .card-img-top {
+  height: 18rem;
+  max-width: 18rem;
+}
+
+body .post-container .post.card .card-body .detail {
+  padding: 1rem;
+  height: 10rem;
+  overflow: auto;
+}
+/*# sourceMappingURL=base.css.map */

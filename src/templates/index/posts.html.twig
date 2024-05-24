@@ -1,0 +1,31 @@
+    <div class="post-container">
+{% for post in posts %}
+    <div class="post card ">
+        <img src="{{ post.getThumbnailPath() }}" alt="" class="card-img-top">
+        <div class="card-body">
+            {% if current_user == post.user %}
+                <a href="{{ path('post_edit', {'idPost': post.id}) }}">Edit</a>
+            {% endif %}
+            <br>
+            {% if current_user %}
+                <a href="{{ path('favorite_toggle', {'idPost': post.id}) }}">
+                    {% if current_user.isFavorite(post) %}
+                        Remove from favorites
+                    {% else %}
+                        Add to favorites
+                    {% endif %}
+                </a>
+            {% endif %}
+            <h2>
+                <a href="{{path('post_view', {idPost: post.id})}}">{{post.title}}</a>
+            </h2>
+            <p>Fav count: <b>{{post.getFavoriteCount()}}</b></p>
+            <h3>{{post.price}}€</h3>
+            <small><a href="{{ path('profile_user', {'idUser': post.user.id}) }}">{{post.user.username}}</a></small>
+            <p class="detail">{{post.detail}}</p>
+        </div>
+    </div>
+{% else %}
+    <p>No results for this research</p>
+{% endfor %}
+    </div>

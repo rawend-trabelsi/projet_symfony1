@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ title }} | LeBonCoin</title>
+		{% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/base.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+		<script src="{{ asset('js/bootstrap.js') }}"></script>
+	</head>
+	<body>
+		{% include 'common/header.html.twig' %}
+		<div class="body">
+			{% include 'common/nav.html.twig' %}
+			<section>
+				<h1>{{ title|upper }}</h1>
+				{% block body %}{% endblock %}
+			</section>
+		</div>
+		{% include 'common/footer.html.twig' %}
+	</body>
+</html>

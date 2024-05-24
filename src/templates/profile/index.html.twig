@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user.id == user.id %}
+        <a href="{{ path('profile_edit') }}">Edit profile</a>
+    {% endif %}
+    <h1>Profile</h1>
+    <ul>
+        <li>Username: <big>{{user.username}}</big></li>
+        <li>phone n°: <big>{{user.phone}}</big></li>
+        <li>city: <big>({{address.postcode}}) {{address.city}}</big></li>
+        <li>address: <big>{{address.number}} {{address.street}}</big></li>
+    </ul>
+
+    <hr>
+    <h1>Posts</h1>
+    {{ include('index/posts.html.twig') }}  
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('post_delete', {'idPost': post.id}) }}">Delete this post</a>
+    {{ form(postForm)}}
+{% endblock %}

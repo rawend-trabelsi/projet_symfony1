@@ -1,0 +1,151 @@
+{% include 'common/header.html.twig' %}
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord</title>
+    <style>
+  
+/* custom.css */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center elements vertically */
+    padding: 0.5rem 1rem; /* Adjust padding size if necessary */
+    margin-bottom: 1rem;
+    background-color: #87CEEB; /* Sky blue */
+    box-shadow: 0 -1px 4px 0 rgba(26, 26, 26, 0.08), 0 4px 8px 0 rgba(26, 26, 26, 0.12);
+    color: #fff; /* White text for contrast with blue background */
+}
+
+/* Navbar link styles */
+.navbar-nav .nav-link {
+    color: #fff; /* White color for links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f1f1f1; /* Slightly lighter color on hover */
+}
+
+.navbar-brand {
+    color: #fff; /* White color for the brand */
+}
+
+.navbar-brand:hover {
+    color: #f1f1f1; /* Slightly lighter color on hover */
+}
+
+
+
+
+        /* Ajoutez vos styles CSS ici */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #343a40;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tableau de bord</h1>
+        <h2>Statistiques générales</h2>
+        <table>
+            <tr>
+                <th>Nombre total d'utilisateurs</th>
+                <td>{{ totalUsers }}</td>
+            </tr>
+            <tr>
+                <th>Nombre total de publications</th>
+                <td>{{ totalPosts }}</td>
+            </tr>
+            <tr>
+                <th>Nombre total de messages</th>
+                <td>{{ totalMessages }}</td>
+            </tr>
+            <tr>
+                <th>Nombre total de favoris</th>
+                <td>{{ totalFavorites }}</td>
+            </tr>
+        </table>
+
+        <h2>Catégories les plus populaires</h2>
+        <table>
+            <tr>
+                <th>Catégorie</th>
+                <th>Nombre de publications</th>
+            </tr>
+            {% for category in categoryStats %}
+                <tr>
+                    <td>{{ category.category_name }}</td>
+                    <td>{{ category.total_posts }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Dernières publications</h2>
+        <table>
+            <tr>
+                <th>Titre</th>
+                <th>Date de publication</th>
+            </tr>
+            {% for post in recentPosts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.publication_date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Utilisateurs avec le plus de publications</h2>
+        <table>
+            <tr>
+                <th>Utilisateur</th>
+                <th>Nombre de publications</th>
+            </tr>
+            {% for user in topUsersByPosts %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.total_posts }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
